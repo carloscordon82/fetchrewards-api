@@ -22,9 +22,9 @@
                 {
                 <br>"success": true,<br>
                 "body": {<br>
-                    &emsp;&emsp;&emsp;&emsp;"payer": "UNILEVER",<br>
-                    &emsp;&emsp;&emsp;&emsp;"points": 800,<br>
-                    &emsp;&emsp;&emsp;&emsp;"timestamp": "2020-10-01T10:00:00.000Z"<br>
+                    &emsp;&emsp;&emsp;&emsp;"payer": "DANNON",<br>
+                    &emsp;&emsp;&emsp;&emsp;"points": 300,<br>
+                    &emsp;&emsp;&emsp;&emsp;"timestamp": "2020-09-31T10:00:00Z"<br>
                     &emsp;&emsp;&emsp;&emsp;}<br>
             } 
         </p>
@@ -32,7 +32,7 @@
         </div>
         <div class="flex flex-col w-full py-6 mx-auto mt-10 border-t border-gray-700 md:flex-row sm:py-8 sm:shadow">
             <h3 class="mb-2 mr-10 text-lg font-medium text-gray-200 md:mb-0 w-24 sm:text-xl md:text-lg">Spend Points</h3>
-            <p class="text-base text-gray-400 sm:text-lg md:text-normal">Request URL: <i style="color:white">http://fetchrewards-api.herokuapp.com/api/spend</i><br>This call is type "POST", receives JSON formatted data and this will substract points from payers from oldest to newest from database<br><br>Example:<br>{"points": 5000}<br><br> Returns points substracted for each payer: <br>
+            <p class="text-base text-gray-400 sm:text-lg md:text-normal">Request URL: <i style="color:white">http://fetchrewards-api.herokuapp.com/api/spend</i><br><br>This call is type "POST", receives JSON formatted data and this will substract points from payers from oldest to newest from database<br><br>Example:<br>{"points": 5000}<br><br> Returns points substracted for each payer: <br>
                
                     {<br>
                         &emsp;    "success": true,<br>
@@ -57,7 +57,7 @@
         </div>
         <div class="flex flex-col w-full py-6 mx-auto mt-10 border-t border-gray-700 md:flex-row sm:py-8 sm:shadow">
             <h3 class="mb-2 mr-10 text-lg font-medium text-gray-200 md:mb-0 w-24 sm:text-xl md:text-lg">Point Balance</h3>
-            <p class="text-base text-gray-400 sm:text-lg md:text-normal">Request URL: <i style="color:white">http://fetchrewards-api.herokuapp.com/api/balance</i><br>This call is type "GET", and returns a balance of each payer's points. <br><br>Return: <br>
+            <p class="text-base text-gray-400 sm:text-lg md:text-normal">Request URL: <i style="color:white">http://fetchrewards-api.herokuapp.com/api/balance</i><br><br>This call is type "GET", and returns a balance of each payer's points. <br><br>Return: <br>
                 {<br>
                 &emsp;    "success": true,<br>
                 &emsp;    "body": {<br>
