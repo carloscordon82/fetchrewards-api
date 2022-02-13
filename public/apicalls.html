@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+
+    <title>API Calls</title>
+</head>
+<body class="bg-gray-900">
+    
+<section class="relative w-auto pt-20 pb-24 bg-gray-900" style="margin:auto">
+    <div class="overflow-hidden border-2 border-purple-600 rounded-lg md:py-6 lg:py-12 md:px-6 lg:p-16 lg:flex lg:items-center lg:justify-between md:shadow-xl max-w-6xl" style="margin:auto">
+        <div class="max-w-6xl px-12 mx-auto">
+            <a href="/" class="block w-full mb-10 px-5 py-3 text-base font-medium leading-6 text-center text-white transition duration-150 ease-in-out bg-purple-600 md:inline-flex md:rounded-md md:shadow md:w-auto hover:bg-purple-500 focus:outline-none focus:shadow-outline">Back to Main</a>
+        <h3 class="mt-1 text-xl font-medium text-left text-gray-100 sm:text-3xl md:text-4xl">API calls and examples</h3>
+
+        <div class="flex flex-col w-full py-6 mx-auto mt-10 border-t border-gray-700 md:flex-row sm:py-8 sm:shadow">
+            <h3 class="mb-2 mr-10 text-lg font-medium text-gray-200 md:mb-0 w-24 sm:text-xl md:text-lg">Add Transaction</h3>
+            <p class="text-base text-gray-400 sm:text-lg md:text-normal">Request URL: <i style="color:white">http://fetchrewards-api.herokuapp.com/api/add</i><br><br>This call is type "POST", receives JSON formatted data and this will add a transaction to our database<br><br>Example:<br>{ "payer": "DANNON", "points": 300, "timestamp": "2020-09-31T10:00:00Z" }<br><br> Returns: <br>
+                {
+                <br>"success": true,<br>
+                "body": {<br>
+                    &emsp;&emsp;&emsp;&emsp;"payer": "UNILEVER",<br>
+                    &emsp;&emsp;&emsp;&emsp;"points": 800,<br>
+                    &emsp;&emsp;&emsp;&emsp;"timestamp": "2020-10-01T10:00:00.000Z"<br>
+                    &emsp;&emsp;&emsp;&emsp;}<br>
+            } 
+        </p>
+          
+        </div>
+        <div class="flex flex-col w-full py-6 mx-auto mt-10 border-t border-gray-700 md:flex-row sm:py-8 sm:shadow">
+            <h3 class="mb-2 mr-10 text-lg font-medium text-gray-200 md:mb-0 w-24 sm:text-xl md:text-lg">Spend Points</h3>
+            <p class="text-base text-gray-400 sm:text-lg md:text-normal">Request URL: <i style="color:white">http://fetchrewards-api.herokuapp.com/api/spend</i><br>This call is type "POST", receives JSON formatted data and this will substract points from payers from oldest to newest from database<br><br>Example:<br>{"points": 5000}<br><br> Returns points substracted for each payer: <br>
+               
+                    {<br>
+                        &emsp;    "success": true,<br>
+                        &emsp;    "body": [<br>
+                        &emsp;&emsp;        {<br>
+                            &emsp;&emsp;&emsp;            "payer": "UNILEVER",<br>
+                            &emsp;&emsp;&emsp;            "points": -2000<br>
+                            &emsp;&emsp;        },<br>
+                            &emsp;&emsp;        {<br>
+                                &emsp;&emsp;&emsp;            "payer": "MILLER COORS",<br>
+                                &emsp;&emsp;&emsp;            "points": -1000<br>
+                                &emsp;&emsp;        },<br>
+                                &emsp;&emsp;        {<br>
+                                    &emsp;&emsp;&emsp;            "payer": "DANNON",<br>
+                                    &emsp;&emsp;&emsp;            "points": -2000<br>
+                                    &emsp;&emsp;        }<br>
+                                    &emsp;    ]<br>
+                    }<br>
+                 
+            </p>
+          
+        </div>
+        <div class="flex flex-col w-full py-6 mx-auto mt-10 border-t border-gray-700 md:flex-row sm:py-8 sm:shadow">
+            <h3 class="mb-2 mr-10 text-lg font-medium text-gray-200 md:mb-0 w-24 sm:text-xl md:text-lg">Point Balance</h3>
+            <p class="text-base text-gray-400 sm:text-lg md:text-normal">Request URL: <i style="color:white">http://fetchrewards-api.herokuapp.com/api/balance</i><br>This call is type "GET", and returns a balance of each payer's points. <br><br>Return: <br>
+                {<br>
+                &emsp;    "success": true,<br>
+                &emsp;    "body": {<br>
+                &emsp;&emsp;        "DANNON": 1000,<br>
+                &emsp;&emsp;        "UNILEVER": 2300,<br>
+                &emsp;&emsp;        "MILLER COORS": 100<br>
+                &emsp;    }<br>
+                }<br>
+            </p>
+          
+        </div>
+        <div class="flex flex-col w-full py-6 mx-auto mt-10 border-t border-gray-700 md:flex-row sm:py-8 sm:shadow">
+            <h3 class="mb-2 mr-10 text-lg font-medium text-gray-200 md:mb-0 w-24 sm:text-xl md:text-lg">Errors</h3>
+            <p class="text-base text-gray-400 sm:text-lg md:text-normal">Errors will return the key "success" as "false" and include a key "message" with details.<br><br>Example: <br>
+                {<br>
+                    &emsp;    "success": false,<br>
+                    &emsp;    "message": "Transaction invalid. Payer does not have enough balance"{<br>
+                 
+                    }<br>
+            </p>
+          
+        </div>
+    </div>
+</div>
+</section>
+
+</body>
+</html>
